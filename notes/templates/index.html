@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h2>Notas</h2>
+	
+	{% for note in notes %}
+		<div class="card" style="width: 50rem;">
+		  <div class="card-header text-">{{ note.created_at }}</div>
+		  <div class="card-body">
+		    <h3 class="card-title">{{ note.title }}</h3>
+		    <h2 class="card-text">{{note.description}}</h2>
+		    <a href="{% url 'update' note.id %}" class="btn btn-sm btn-primary">Editar</a>
+		    <a href="{% url 'delete' note.id %}" class="btn btn-sm btn-danger">Remover</a>
+		  </div>
+		</div>
+		<br/> 
+	{% endfor%}
+{% endblock %}
