@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from notes.models import Note
@@ -5,6 +6,7 @@ from notes.form import NoteForm
 
 # Create your views here.
 
+@login_required(login_url="/contas/login/")
 def index(request):
 	notes = Note.objects.all()
 	template = "index.html" 
@@ -13,6 +15,7 @@ def index(request):
 	}
 	return render(request, template,context)
 
+@login_required(login_url="/contas/login/")
 def create(request):
 	form = NoteForm(request.POST or None)
 
@@ -28,6 +31,7 @@ def create(request):
 
 	return render(request, template, context)
 
+@login_required(login_url="/contas/login/")
 def update(request, note_id):
 
 	note = Note.objects.get(pk=note_id)
@@ -45,6 +49,7 @@ def update(request, note_id):
 
 	return render(request, template, context)
 
+@login_required(login_url="/contas/login/")
 def delete(request, note_id):
 	note = Note.objects.get(pk=note_id)
 	note.delete()
