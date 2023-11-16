@@ -3,7 +3,7 @@ Aplicação simples que possui cadastro, listagem, edição e deleção de notas
 
 # Sessão de teste:
 
-Como usar o git.
+Como usar o git......
 
 # Verificar versão do python instalada
 
